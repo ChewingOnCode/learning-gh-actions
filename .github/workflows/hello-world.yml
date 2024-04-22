@@ -1,1 +1,18 @@
+# Name your file
 name: hello-world
+
+# Set the workflow's trigger event.
+# The push event runs your workflow when you push a commit or tag, or when you create a repository from a template.
+on: push
+
+# Define a job
+jobs:
+  hello-world-job:
+# Specify a runner
+    runs-on: ubuntu-latest
+# Add a step to run your first action
+    steps:
+      - name: Check out repository code
+      # uses: actions/checkout@v3 - means it uses the v3 of the checkout action
+        uses: actions/checkout@v3
+      - run: echo "$(cat hello-world.txt)"
